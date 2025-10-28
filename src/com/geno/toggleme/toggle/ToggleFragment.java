@@ -63,6 +63,7 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
         // Initialize handlers
         mHandlers.put("rro", new RROToggleHandler());
         mHandlers.put("settings_secure", new SettingsSecureToggleHandler());
+        mHandlers.put("write", new WriteToggleHandler());
 
         Context context = getContext();
         if (context == null) {
@@ -119,6 +120,9 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
                         int targetResId = parser.getAttributeResourceValue(null, "target", 0);
                         int enableValueResId = parser.getAttributeResourceValue(null, "enable_value", 0);
                         int disableValueResId = parser.getAttributeResourceValue(null, "disable_value", 0);
+                        
+                        // Write-specific attributes
+                        int pathResId = parser.getAttributeResourceValue(null, "path", 0);
 
                         boolean enabled = true;
                         if (enabledResId != 0) {
@@ -135,6 +139,14 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
                                 toggleKey = packageName;
                             } else if ("settings_secure".equals(type) && targetResId != 0) {
                                 toggleKey = context.getString(targetResId);
+                                if (enableValueResId != 0) {
+                                    enableValue = context.getString(enableValueResId);
+                                }
+                                if (disableValueResId != 0) {
+                                    disableValue = context.getString(disableValueResId);
+                                }
+                            } else if ("write".equals(type) && pathResId != 0) {  
+                                toggleKey = context.getString(pathResId);
                                 if (enableValueResId != 0) {
                                     enableValue = context.getString(enableValueResId);
                                 }
