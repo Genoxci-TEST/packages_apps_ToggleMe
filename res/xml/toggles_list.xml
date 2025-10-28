@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<toggles>
+
+    <category title="Lockscreen" />
+    
+        <!-- AOD wallpaper toggle (RRO) -->
+        <toggle
+            title="@string/aod_wallpaper_title"
+            summary="@string/aod_wallpaper_summary"
+            type="rro"
+            package="com.android.systemui.aod.wallpaper"
+            enabled="@bool/enable_aod_wallpaper_activity"
+            order="1" />
+
+    <category title="Display" />
+    
+        <!-- Camera cutout fill toggle (RRO) -->
+        <toggle
+            title="@string/camera_cutoutfill_title"
+            summary="@string/camera_cutoutfill_summary"
+            type="rro"
+            package="com.android.systemui.camera.cutoutfill"
+            enabled="@bool/enable_camera_cutoutfill_activity"
+            order="1" />
+
+        <!-- Rotation suggestion (Settings.Secure) -->
+        <toggle
+            title="@string/rotation_suggest_title"
+            summary="@string/rotation_suggest_summary"
+            type="settings_secure"
+            target="@string/rotation_suggest_target"
+            enable_value="@string/rotation_suggest_enable_value"
+            disable_value="@string/rotation_suggest_disable_value"
+            enabled="@bool/enable_rotation_suggestion_activity"
+            order="2" />
+
+</toggles>
