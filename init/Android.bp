@@ -1,0 +1,6 @@
+prebuilt_etc {
+    name: "init.toggleme.rc",
+    src: "init.toggleme.rc",
+    sub_dir: "init",
+    vendor: true,
+}

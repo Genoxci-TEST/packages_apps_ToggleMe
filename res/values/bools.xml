@@ -20,5 +20,6 @@
     <bool name="enable_aod_wallpaper_activity">false</bool>
     <bool name="enable_camera_cutoutfill_activity">false</bool>
     <bool name="enable_rotation_suggestion_activity">true</bool>
+    <bool name="enable_high_brightness_mode_activity">true</bool>
 
 </resources>

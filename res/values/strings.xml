@@ -29,10 +29,18 @@
     <string name="camera_cutoutfill_title">Camera Cutout Fill</string>
     <string name="camera_cutoutfill_summary">Show software camera cutout essentially adding black border along punch hole</string>
 
-    <!-- Rotation suggestion toggle -->
+    <!-- Rotation Suggestion Toggle -->
     <string name="rotation_suggest_title">Rotation Suggestions</string>
     <string name="rotation_suggest_summary">Show rotation button when device is rotated</string>
     <string name="rotation_suggest_target">show_rotation_suggestions</string>
     <string name="rotation_suggest_enable_value">1</string>
     <string name="rotation_suggest_disable_value">0</string>
+
+    <!-- High Brightness Mode Toggle -->
+    <string name="high_brightness_mode_title">High Brightness Mode</string>
+    <string name="high_brightness_mode_summary">Force display to use peak brightness</string>
+    <string name="high_brightness_mode_path">/sys/panel_feature/hbm_mode</string>
+    <string name="high_brightness_mode_enable_value">1</string>
+    <string name="high_brightness_mode_disable_value">0</string>
+
 </resources>
