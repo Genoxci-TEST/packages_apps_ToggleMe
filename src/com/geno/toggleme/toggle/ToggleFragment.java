@@ -58,6 +58,16 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
         }
     }
 
+    private static class CategoryInfo {
+        PreferenceCategory category;
+        List<ToggleInfo> toggles;
+
+        CategoryInfo(PreferenceCategory category) {
+            this.category = category;
+            this.toggles = new ArrayList<>();
+        }
+    }
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         // Initialize handlers
@@ -74,8 +84,8 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
         PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(context);
         setPreferenceScreen(screen);
 
-        PreferenceCategory currentCategory = null;
-        List<ToggleInfo> currentToggles = new ArrayList<>();
+        CategoryInfo currentCategoryInfo = null;
+        List<CategoryInfo> allCategories = new ArrayList<>();
 
         try {
             XmlResourceParser parser = context.getResources().getXml(R.xml.toggles_list);
@@ -85,26 +95,26 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
                     String tagName = parser.getName();
                     
                     if ("category".equals(tagName)) {
-                        // Add sorted toggles from previous category
-                        if (currentCategory != null && !currentToggles.isEmpty()) {
-                            addSortedToggles(currentCategory, currentToggles);
-                            currentToggles.clear();
+                        // Save previous category
+                        if (currentCategoryInfo != null) {
+                            allCategories.add(currentCategoryInfo);
                         }
 
                         int titleResId = parser.getAttributeResourceValue(null, "title", 0);
                         String titleString = parser.getAttributeValue(null, "title");
-                        currentCategory = new PreferenceCategory(context);
+                        PreferenceCategory category = new PreferenceCategory(context);
                         
                         if (titleResId != 0) {
                             try {
-                                currentCategory.setTitle(context.getString(titleResId));
+                                category.setTitle(context.getString(titleResId));
                             } catch (Resources.NotFoundException e) {
                                 Log.w(TAG, "Resource not found for category title: " + titleResId);
                             }
                         } else if (titleString != null) {
-                            currentCategory.setTitle(titleString);
+                            category.setTitle(titleString);
                         }
-                        screen.addPreference(currentCategory);
+                        
+                        currentCategoryInfo = new CategoryInfo(category);
                         
                     } else if ("toggle".equals(tagName)) {
                         int titleResId = parser.getAttributeResourceValue(null, "title", 0);
@@ -129,7 +139,7 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
                             enabled = getResources().getBoolean(enabledResId);
                         }
 
-                        if (enabled && type != null) {
+                        if (enabled && type != null && currentCategoryInfo != null) {
                             String toggleKey = null;
                             String enableValue = null;
                             String disableValue = null;
@@ -160,7 +170,7 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
                                         context, titleResId, summaryResId, type, toggleKey, 
                                         enableValue, disableValue);
                                 if (toggle != null) {
-                                    currentToggles.add(new ToggleInfo(order, toggle));
+                                    currentCategoryInfo.toggles.add(new ToggleInfo(order, toggle));
                                 }
                             }
                         }
@@ -169,9 +179,17 @@ public class ToggleFragment extends SettingsBasePreferenceFragment {
                 eventType = parser.next();
             }
 
-            // Add sorted toggles from last category
-            if (currentCategory != null && !currentToggles.isEmpty()) {
-                addSortedToggles(currentCategory, currentToggles);
+            // Save last category
+            if (currentCategoryInfo != null) {
+                allCategories.add(currentCategoryInfo);
+            }
+
+            // Add categories with toggles to the screen
+            for (CategoryInfo categoryInfo : allCategories) {
+                if (!categoryInfo.toggles.isEmpty()) {
+                    screen.addPreference(categoryInfo.category);
+                    addSortedToggles(categoryInfo.category, categoryInfo.toggles);
+                }
             }
 
         } catch (XmlPullParserException | IOException e) {
