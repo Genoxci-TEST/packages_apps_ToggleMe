@@ -1,0 +1,4 @@
+on property:sys.boot_completed=1
+    # High Brightness Mode (HBM)
+    chown system system /sys/panel_feature/hbm_mode
+    chmod 0664 /sys/panel_feature/hbm_mode

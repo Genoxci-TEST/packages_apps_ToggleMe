@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2020 The LineageOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App -->
+    <string name="app_name">Extras</string>
+    <string name="app_title">Extras</string>
+    <string name="app_summary">View extra system toggles</string>
+
+    <!-- Hide AOD Wallpaper RRO Toggle -->
+    <string name="hide_aod_wallpaper_title">Hide AOD Wallpaper</string>
+    <string name="hide_aod_wallpaper_summary">Show AMOLED black background on always-on display</string>
+
+    <!-- Camera Cutout Fill RRO Toggle -->
+    <string name="camera_cutoutfill_title">Camera Cutout Fill</string>
+    <string name="camera_cutoutfill_summary">Show software camera cutout essentially adding black border along punch hole</string>
+
+    <!-- Rotation Suggestion Toggle -->
+    <string name="rotation_suggest_title">Rotation Suggestions</string>
+    <string name="rotation_suggest_summary">Show rotation button when device is rotated</string>
+    <string name="rotation_suggest_target">show_rotation_suggestions</string>
+    <string name="rotation_suggest_enable_value">1</string>
+    <string name="rotation_suggest_disable_value">0</string>
+
+    <!-- High Brightness Mode Toggle -->
+    <string name="high_brightness_mode_title">High Brightness Mode</string>
+    <string name="high_brightness_mode_summary">Force display to use peak brightness</string>
+    <string name="high_brightness_mode_path">/sys/panel_feature/hbm_mode</string>
+    <string name="high_brightness_mode_enable_value">1</string>
+    <string name="high_brightness_mode_disable_value">0</string>
+
+</resources>
