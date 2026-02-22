@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.geno.toggleme.toggle;
+package com.geno.extras.toggle;
 
 import android.content.Context;
 import android.content.SharedPreferences;

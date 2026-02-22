@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.geno.toggleme.toggle;
+package com.geno.extras.toggle;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -28,7 +28,7 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreferenceCompat;
 
-import com.geno.toggleme.R;
+import com.geno.extras.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

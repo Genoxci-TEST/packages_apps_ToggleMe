@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.geno.toggleme.toggle;
+package com.geno.extras.toggle;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
-import com.geno.toggleme.R;
+import com.geno.extras.R;
 
 public class GenericTogglesActivity extends CollapsingToolbarBaseActivity {
 

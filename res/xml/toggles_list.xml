@@ -6,11 +6,11 @@
     
         <!-- AOD wallpaper toggle (RRO) -->
         <toggle
-            title="@string/aod_wallpaper_title"
-            summary="@string/aod_wallpaper_summary"
+            title="@string/hide_aod_wallpaper_title"
+            summary="@string/hide_aod_wallpaper_summary"
             type="rro"
             package="com.android.systemui.aod.wallpaper"
-            enabled="@bool/enable_aod_wallpaper_activity"
+            enabled="@bool/enable_hide_aod_wallpaper_activity"
             order="1" />
 
     <category title="Display" />

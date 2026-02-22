@@ -17,5 +17,5 @@
 
 <resources>
     <!-- If AOD can show an ambient version of the wallpaper -->
-    <bool name="config_dozeSupportsAodWallpaper">true</bool>
+    <bool name="config_dozeSupportsAodWallpaper">false</bool>
 </resources>

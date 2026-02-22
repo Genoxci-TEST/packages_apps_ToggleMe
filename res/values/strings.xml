@@ -17,13 +17,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- App -->
-    <string name="app_name">ToggleMe</string>
-    <string name="app_title">ToggleMe</string>
+    <string name="app_name">Extras</string>
+    <string name="app_title">Extras</string>
     <string name="app_summary">View extra system toggles</string>
 
-    <!-- AOD Wallpaper RRO Toggle -->
-    <string name="aod_wallpaper_title">AOD Wallpaper</string>
-    <string name="aod_wallpaper_summary">Show dim wallpaper on always-on display</string>
+    <!-- Hide AOD Wallpaper RRO Toggle -->
+    <string name="hide_aod_wallpaper_title">Hide AOD Wallpaper</string>
+    <string name="hide_aod_wallpaper_summary">Show AMOLED black background on always-on display</string>
 
     <!-- Camera Cutout Fill RRO Toggle -->
     <string name="camera_cutoutfill_title">Camera Cutout Fill</string>

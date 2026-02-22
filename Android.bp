@@ -5,7 +5,7 @@
 //
 
 android_app {
-    name: "ToggleMe",
+    name: "Extras",
     defaults: [
         "SettingsLibDefaults",
     ],
@@ -31,15 +31,15 @@ android_app {
     },
 
     required: [
-        "privapp_whitelist_toggleme.xml",
+        "privapp_whitelist_com.geno.extras.xml",
         "AodWallpaperOverlay",
         "CameraCutoutFillOverlay",
     ],
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_toggleme.xml",
-    src: "permissions/privapp_whitelist_toggleme.xml",
+    name: "privapp_whitelist_com.geno.extras.xml",
+    src: "permissions/privapp_whitelist_com.geno.extras.xml",
     sub_dir: "permissions",
     system_ext_specific: true,
 }
